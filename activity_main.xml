@@ -102,6 +102,7 @@
     0 pct (frezing) to 100 pct (boiling) after conversion pulling from
      drawable/custom_progress_bg-->
 
+   <!--ProgressBar Representing Freezing to Boiling Point-->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
