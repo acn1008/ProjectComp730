@@ -1,73 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+    <!-- Linear Layout chosen to design application-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background ="#800080"
+    android:backgroundTintMode="add"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!-- static image-doesn't change in application -->
     <ImageView
-        xmlns:tools="http://schemas.android.com/apk/res-auto"
         android:id="@+id/image"
-        android:layout_width="250dp"
-        android:layout_height="300dp"
-        android:layout_marginHorizontal="65dp"
-        android:src="@drawable/temperature"/>.
-
-    <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/temperature_converter"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textColor="#ffff"
-        android:layout_marginTop="30dp"/>
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="65dp"
+        android:contentDescription="@string/temperature"
+        android:src="@drawable/temperature"
+        tools:ignore="ImageContrastCheck" />
 
+    <!-- project title and authors -->
+    <TextView
+        android:id="@+id/authors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/temperature_converter_by_andre_nasrah_ellie_brown"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="15sp" />
+
+    <!-- this is where the temperature to be converted is entered -->
     <EditText
-        android:id="@+id/enterTemp"
+        android:id="@+id/input_edt"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="@string/enter_temperature_here"
-        android:inputType="numberDecimal"
+        android:layout_marginTop="10dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="@string/enter_temperature"
+        android:inputType="numberDecimal"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_marginTop="25dp"
-        android:autofillHints=""/>
+        android:textColorHint="#FFF9C4"
+        android:textSize="25sp" />
+
 
     <Button
-        android:id="@+id/cToF"
-        android:layout_width="match_parent"
+        android:id="@+id/c2f_btn"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:text="@string/celcius_to_farenheit"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:layout_gravity="center"
+        android:layout_gravity="start"
         android:layout_marginTop="25dp"
-        android:textAllCaps="false"/>
+        android:layout_marginStart="@dimen/cardview_default_elevation"
+        android:text="@string/celsius_to_fahrenheit"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="25sp" />
 
+    <!-- Celisius to Fahrenheit button where conversion is called
+    from ConverterClass.java -->
     <Button
-        android:id="@+id/fToC"
-        android:layout_width="match_parent"
+        android:id="@+id/f2c_btn"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:text="@string/farenheit_to_celcius"
+        android:layout_gravity="end"
+        android:layout_marginTop="-83dp"
+        android:layout_marginEnd="@dimen/cardview_default_elevation"
+        android:text="@string/fahrenheit_to_celsius"
         android:textAlignment="center"
-        android:textSize="25sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:textSize="25sp" />
 
+    <!-- Fahrenheit to Celcius button where conversion is called
+     from ConverterClass.java -->
     <TextView
-        android:id="@+id/result"
-        android:layout_width="match_parent"
+        android:id="@+id/output_tv"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="45dp"
+        android:text="@string/degrees"
+        android:textAlignment="center"
+        android:textColor="#F06292"
+        android:textSize="25sp" />
+
+    <!-- Freezing button used as a label to mark progress bar readings -->
+    <Button
+        android:id="@+id/freezing"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:text="@string/_0_degrees"
+        android:layout_gravity="start"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"/>
+        android:textAllCaps="false"
+        android:text="@string/freezing" />
+
+    <!-- Progress bar used as a marker to determine on a scale from
+    0 pct (frezing) to 100 pct (boiling) after conversion pulling from
+     drawable/custom_progress_bg-->
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/custom_progress_bg"/>
+
+    <!-- Boiling button used as a label to mark progress bar readings -->
+    <Button
+        android:id="@+id/boiling"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:text="@string/boiling" />
+
+    <!-- Disclaimer stating when celisius is converted to fahrenheit freezing is 32
+     degrees while boiling is 212 degrees -->
+    <TextView
+        android:id="@+id/disclaimer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/when_celsius_is_converted_to_fahrenheit_freezing_is_32_degrees_while_boilng_is_212_degrees"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="15sp" />
+
+    <!-- Disclaimer stating when fahrenheit is converted to celsius freezing is 0
+     degrees while boiling is 100 degrees -->
+    <TextView
+        android:id="@+id/disclaimer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/when_fahrenheit_is_converted_to_celsius_freezing_is_0_degrees_while_boilng_is_100_degrees"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="15sp" />
 
 </LinearLayout>
