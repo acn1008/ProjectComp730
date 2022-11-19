@@ -3,6 +3,8 @@ package com.example.tempconverterbothfarenheitandcelsius;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,25 +37,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    c2f_Btn.setOnClickListener(v -> {
+    private void userInput() {
+        progressBar = findViewById(R.id.progressBar);
+        f2c_Btn = findViewById(R.id.f2c_btn);
+        c2f_Btn = findViewById(R.id.c2f_btn);
+
+        c2f_Btn.setOnClickListener(v -> {
 
             ConverterClass converterClass = new ConverterClass();
             double degCel = Double.parseDouble(input_Edt.getText().toString());
-            //Takes input value from input_Edt and sets it to degCal
             double degFar = converterClass.c2f_fn(degCel);
-            //The output of converterClass using degCal is put into degFar as the result
-            int final_Far = (int) degFar - 32;
-            //Progress bar needs to be shifted 32 to the left so that is aligned with both freezing points
-            //C freezing = 0 and F freezing = 32
+            int final_Far = (int) degFar - 32; //gets to 0 on the bar
+            progressBar.setMax(180); // set max bar to 180 since -32 from initial Fahrenheit boiling reading because
+            // 100 degrees celsius / 100 pct on bar same as 212 degrees fahrenheit for boiling and -32 is 180 shifting
+            // the bar back to read 32 matching 0 pct on the bar marks "freezing point"
             output_TV.setText(Double.toString(degFar));
-                progressBar.setMax(180);
-                //Progress bar is set to have a max of 180 because 212 is boiling in F and 100 is boiling in C
-                //Entire progress bar needs to be offset by 32 so that 212 - 32 = 180
-                CurrentProgress = CurrentProgress + final_Far;
-                //Updates progress bar to be filled with a percentage value of what final_Far is
-                progressBar.setProgress(CurrentProgress);
-                CurrentProgress = 0;
-                //Resets progress bar to 0
+            CurrentProgress = CurrentProgress + final_Far;
+            progressBar.setProgress(CurrentProgress);
+            CurrentProgress = 0;
+            //Freezing temperature 32 degrees Fahrenheit or below would have blue background
+            //Default background is purple
+            if ((int) degFar <= 32) {
+                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                bgElement.setBackgroundColor(Color.BLUE);
+            }
+            //Boiling temperature 212 degrees Fahrenheit or above would have red background
+            //Default background is purple
+            else if ((int)degFar >= 212) {
+                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                bgElement.setBackgroundColor(Color.RED);
+            }
+            //Temperatures in between freezing and boiling would have green background
+            //Default background is purple
+            else {
+                    LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                    bgElement.setBackgroundColor(Color.GREEN);
+                }
 
         });
 
@@ -63,15 +82,31 @@ public class MainActivity extends AppCompatActivity {
             double degFar = Double.parseDouble((input_Edt.getText().toString()));
             double degCel = converterClass.f2c_fn(degFar);
             output_TV.setText(Double.toString(degCel));
-            int final_Cel = (int) degCel;
-            //Min of progress bar is set to 0 by default
-                progressBar.setMax(100);
-                //Progress bar is to toa max of 100 because boiling in Celsius is 100
-                CurrentProgress = CurrentProgress + final_Cel;
-                //Updates progress bar to be filled with a percentage of what final_Cel is
-                progressBar.setProgress(CurrentProgress);
-                CurrentProgress = 0;
-                //Resets progress bar to 0
+            int final_Cel = (int) degCel; //gets to 0 on the bar
+            progressBar.setMax(100); // set max bar to 100 since 212 degrees fahrenheit and 100 degrees celcius / 100 pct on
+            // bar marks "boiling point" as well as 0 degrees celsius matching 0 percent on the bar marks "freezing point"
+            CurrentProgress = CurrentProgress + final_Cel;
+            progressBar.setProgress(CurrentProgress);
+            //Resets progress bar to 0
+            CurrentProgress = 0;
+            //Freezing temperature 0 degrees Celsius or below would have blue background
+            //Default background is purple
+            if ((int)degCel <= 0) {
+                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                bgElement.setBackgroundColor(Color.BLUE);
+            }
+            //Boiling temperature 100 degrees Celsius or above would have red background
+            //Default background is purple
+            else if ((int)degCel >= 100) {
+                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                bgElement.setBackgroundColor(Color.RED);
+            }
+            //Temperatures in between freezing and boiling would have green background
+            //Default background is purple
+            else {
+                    LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                    bgElement.setBackgroundColor(Color.GREEN);
+            }
         });
     }
 }
