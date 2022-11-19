@@ -47,6 +47,8 @@
         android:textColorHint="#FFF9C4"
         android:textSize="25sp" />
 
+    <!-- Celisius to Fahrenheit button where conversion is called
+    from ConverterClass.java -->
 
     <Button
         android:id="@+id/c2f_btn"
@@ -60,8 +62,10 @@
         android:textAllCaps="false"
         android:textSize="25sp" />
 
-    <!-- Celisius to Fahrenheit button where conversion is called
-    from ConverterClass.java -->
+
+    <!-- Fahrenheit to Celcius button where conversion is called
+     from ConverterClass.java -->
+
     <Button
         android:id="@+id/f2c_btn"
         android:layout_width="190dp"
@@ -74,8 +78,6 @@
         android:textAllCaps="false"
         android:textSize="25sp" />
 
-    <!-- Fahrenheit to Celcius button where conversion is called
-     from ConverterClass.java -->
     <TextView
         android:id="@+id/output_tv"
         android:layout_width="100dp"
@@ -99,6 +101,18 @@
         android:textAllCaps="false"
         android:text="@string/freezing" />
 
+    <!-- Boiling button used as a label to mark progress bar readings -->
+    <Button
+        android:id="@+id/boiling"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:text="@string/boiling"
+        android:layout_marginTop="-53dp"/>
+
     <!-- Progress bar used as a marker to determine on a scale from
     0 pct (frezing) to 100 pct (boiling) after conversion pulling from
      drawable/custom_progress_bg-->
@@ -110,18 +124,9 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:progressDrawable="@drawable/custom_progress_bg"/>
 
-    <!-- Boiling button used as a label to mark progress bar readings -->
-    <Button
-        android:id="@+id/boiling"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:textAllCaps="false"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:text="@string/boiling" />
 
-    <!-- Disclaimer stating when celisius is converted to fahrenheit freezing is 32
+
+     <!-- Disclaimer stating when celisius is converted to fahrenheit freezing is 32
      degrees while boiling is 212 degrees -->
     <TextView
         android:id="@+id/disclaimer1"
@@ -145,4 +150,15 @@
         android:textColor="#FAFAFA"
         android:textSize="15sp" />
 
+    <!-- Disclaimer explaining background color blue for freezing, red for boiling and
+     green for everything else. Purple is standard background-->
+    <TextView
+        android:id="@+id/disclaimer3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/freezing_temps_blue_backround_boiling_temps_red_background_all_other_temps_green_background"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="15sp" />
 </LinearLayout>
