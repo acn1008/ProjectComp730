@@ -1,48 +1,85 @@
 package com.example.tempconverterbothfarenheitandcelsius;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.os.Bundle;
-
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button c2f_Btn;
-    private Button f2c_Btn;
     private EditText input_Edt;
     private TextView output_TV;
+    private Button go_Btn;
     private int CurrentProgress = 0;
     private ProgressBar progressBar;
+    private Object AdapterView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        c2f_Btn = findViewById(R.id.c2f_btn); //button celsius to fahrenheit calculation via ConverterClass
-        f2c_Btn = findViewById(R.id.f2c_btn); //button fahrenheit to celsius calculation via ConverterClass
         input_Edt = findViewById(R.id.input_edt); // temperature that is inputted prior to calculation
         output_TV = findViewById(R.id.output_tv); // temperature that is outputted after calculation
+        go_Btn = findViewById(R.id.go_btn);
+        
+        Spinner spinner_convert = (Spinner) findViewById(R.id.spinner);
+        //creates new Spinner using the XML spinner formatting
+        String[] items = new String[] {"Celsius to Fahrenheit", "Fahrenheit to Celsius"};
+        //creates a list of dropdown options
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+        //create a new adapter to connect items to a spinner-dropdown format
+        spinner_convert.setAdapter(adapter);
+        //connects spinner to adapter
+        spinner_convert.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+                //connects items String to position within dropdown
+                Log.v("item", (String) parent.getItemAtPosition(position));
+                if (position == 0){
+                    //gets position of which item in the dropdown was selected
+                    //if position 0 (Celsius to Fahrenheit) selected then pass 0 to go_calculate
+                    go_calculate(0);
+                }
+                else if (position == 1){
+                    //gets position of which item in the dropdown was selected
+                    //if position 0 (Celsius to Fahrenheit) selected then pass 0 to go_calculate
+                    go_calculate(1);
+                }
+            }
+            @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                //Run something if nothing is selected. Aka nothing because there is nothing in this method
+            }
+        });
+    }
 
-        userInput(); //user gets input from input field
-
+    private void go_calculate(int num) {
+        go_Btn.setOnClickListener(v -> {
+            //pass num 1 or 0 from dropdown selection to userInput to calculate correct conversion
+            //0 = Celsius to Fahrenheit
+            //1 = Fahrenheit to Celsius
+            userInput(num);
+        });
     }
 
     @SuppressLint("SetTextI18n")
-    private void userInput() {
+    private void userInput(int num) {
         progressBar = findViewById(R.id.progressBar);
-        f2c_Btn = findViewById(R.id.f2c_btn);
-        c2f_Btn = findViewById(R.id.c2f_btn);
 
-        c2f_Btn.setOnClickListener(v -> {
+         if (num == 0) {
 
             ConverterClass converterClass = new ConverterClass();
             double degCel = Double.parseDouble(input_Edt.getText().toString());
@@ -74,9 +111,9 @@ public class MainActivity extends AppCompatActivity {
                     bgElement.setBackgroundColor(Color.GREEN);
                 }
 
-        });
+        }
 
-        f2c_Btn.setOnClickListener(v -> {
+        if (num == 1) {
 
             ConverterClass converterClass = new ConverterClass();
             double degFar = Double.parseDouble((input_Edt.getText().toString()));
@@ -107,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
                     bgElement.setBackgroundColor(Color.GREEN);
             }
-        });
+        }
     }
 }
 
