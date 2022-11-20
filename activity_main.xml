@@ -135,7 +135,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/when_celsius_is_converted_to_fahrenheit_freezing_is_32_degrees_while_boilng_is_212_degrees"
         android:textAlignment="center"
-        android:textColor="#FAFAFA"
+        android:textColor="#99000000"
         android:textSize="15sp" />
 
     <!-- Disclaimer stating when fahrenheit is converted to celsius freezing is 0
@@ -147,7 +147,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/when_fahrenheit_is_converted_to_celsius_freezing_is_0_degrees_while_boilng_is_100_degrees"
         android:textAlignment="center"
-        android:textColor="#FAFAFA"
+        android:textColor="#99000000"
         android:textSize="15sp" />
 
     <!-- Disclaimer explaining background color blue for freezing, red for boiling and
@@ -159,6 +159,6 @@
         android:layout_marginTop="25dp"
         android:text="@string/freezing_temps_blue_backround_boiling_temps_red_background_all_other_temps_green_background"
         android:textAlignment="center"
-        android:textColor="#FAFAFA"
+        android:textColor="#99000000"
         android:textSize="15sp" />
 </LinearLayout>
