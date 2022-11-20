@@ -47,36 +47,17 @@
         android:textColorHint="#FFF9C4"
         android:textSize="25sp" />
 
-    <!-- Celisius to Fahrenheit button where conversion is called
-    from ConverterClass.java -->
-
+   <!--Button to calculate conversion output-->
     <Button
-        android:id="@+id/c2f_btn"
-        android:layout_width="190dp"
+        android:id="@+id/go_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:text="Calculate Conversion"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:layout_marginStart="@dimen/cardview_default_elevation"
-        android:text="@string/celsius_to_fahrenheit"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="25sp" />
-
-
-    <!-- Fahrenheit to Celcius button where conversion is called
-     from ConverterClass.java -->
-
-    <Button
-        android:id="@+id/f2c_btn"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="-83dp"
-        android:layout_marginEnd="@dimen/cardview_default_elevation"
-        android:text="@string/fahrenheit_to_celsius"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="25sp" />
+        android:textAllCaps="false"/>
 
     <TextView
         android:id="@+id/output_tv"
