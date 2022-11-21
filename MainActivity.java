@@ -1,27 +1,29 @@
 package com.example.tempconverterbothfarenheitandcelsius;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.Button;
+import android.widget.EditText;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.widget.Adapter;
+
 import android.widget.Spinner;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button go_Btn;
     private EditText input_Edt;
     private TextView output_TV;
-    private Button go_Btn;
     private int CurrentProgress = 0;
     private ProgressBar progressBar;
     private Object AdapterView;
@@ -31,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        go_Btn = findViewById(R.id.go_btn);; //button celsius to fahrenheit and fahrenheit to celsius calculation via ConverterClass
         input_Edt = findViewById(R.id.input_edt); // temperature that is inputted prior to calculation
         output_TV = findViewById(R.id.output_tv); // temperature that is outputted after calculation
-        go_Btn = findViewById(R.id.go_btn);
-        
+
         Spinner spinner_convert = (Spinner) findViewById(R.id.spinner);
         //creates new Spinner using the XML spinner formatting
         String[] items = new String[] {"Celsius to Fahrenheit", "Fahrenheit to Celsius"};
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
+            public void onNothingSelected(AdapterView<?> parent) {
                 //Run something if nothing is selected. Aka nothing because there is nothing in this method
             }
         });
@@ -72,14 +74,17 @@ public class MainActivity extends AppCompatActivity {
             //0 = Celsius to Fahrenheit
             //1 = Fahrenheit to Celsius
             userInput(num);
+
         });
     }
 
+
     @SuppressLint("SetTextI18n")
     private void userInput(int num) {
-        progressBar = findViewById(R.id.progressBar);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
 
-         if (num == 0) {
+
+        if (num == 0) {
 
             ConverterClass converterClass = new ConverterClass();
             double degCel = Double.parseDouble(input_Edt.getText().toString());
@@ -110,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
                     LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
                     bgElement.setBackgroundColor(Color.GREEN);
                 }
-
         }
 
         if (num == 1) {
