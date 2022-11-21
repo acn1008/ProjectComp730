@@ -30,32 +30,37 @@
         android:text="@string/temperature_converter_by_andre_nasrah_ellie_brown"
         android:textAlignment="center"
         android:textColor="#FAFAFA"
+        android:textStyle="bold"
         android:textSize="15sp" />
 
-    <!-- this is where the temperature to be converted is entered -->
+    <!-- This is where the temperature to be converted is entered -->
     <EditText
         android:id="@+id/input_edt"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_temperature"
         android:inputType="numberDecimal"
         android:textAlignment="center"
+        android:textStyle="italic"
         android:textColorHint="#FFF9C4"
-        android:textSize="25sp" />
+        android:textSize="22sp" />
 
+    <!-- This is the drop down menu which has been implemented to choose either Celsius to Fahrenheit or Fahrenheit to Celsius -->
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+
+        android:layout_marginTop="20dp"
+        android:textSize="45sp"
         android:spinnerMode="dropdown"
+        android:layout_gravity="center"
         android:text="Choose a Conversion"/>
-    
-   <!--Button to calculate conversion output-->
+
+    <!--Button to calculate conversion output-->
     <Button
         android:id="@+id/go_btn"
         android:layout_width="match_parent"
@@ -64,7 +69,8 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="-10dp"
         android:textAllCaps="false"/>
 
     <TextView
@@ -73,11 +79,12 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/degrees"
         android:textAlignment="center"
         android:textColor="#F06292"
-        android:textSize="25sp" />
+        android:textStyle="bold"
+        android:textSize="22sp" />
 
     <!-- Freezing button used as a label to mark progress bar readings -->
     <Button
@@ -88,6 +95,8 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:textAllCaps="false"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="-53dp"
         android:text="@string/freezing" />
 
     <!-- Boiling button used as a label to mark progress bar readings -->
@@ -100,7 +109,8 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:text="@string/boiling"
-        android:layout_marginTop="-53dp"/>
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="-73dp"/>
 
     <!-- Progress bar used as a marker to determine on a scale from
     0 pct (frezing) to 100 pct (boiling) after conversion pulling from
@@ -121,10 +131,12 @@
         android:id="@+id/disclaimer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:text="@string/when_celsius_is_converted_to_fahrenheit_freezing_is_32_degrees_while_boilng_is_212_degrees"
         android:textAlignment="center"
-        android:textColor="#99000000"
+        android:textStyle="bold"
+        android:textColor="#FAFAFA"
+        android:background="#666666"
         android:textSize="15sp" />
 
     <!-- Disclaimer stating when fahrenheit is converted to celsius freezing is 0
@@ -133,10 +145,12 @@
         android:id="@+id/disclaimer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:text="@string/when_fahrenheit_is_converted_to_celsius_freezing_is_0_degrees_while_boilng_is_100_degrees"
         android:textAlignment="center"
-        android:textColor="#99000000"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        android:background="#666666"
         android:textSize="15sp" />
 
     <!-- Disclaimer explaining background color blue for freezing, red for boiling and
@@ -145,9 +159,11 @@
         android:id="@+id/disclaimer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:text="@string/freezing_temps_blue_backround_boiling_temps_red_background_all_other_temps_green_background"
         android:textAlignment="center"
-        android:textColor="#99000000"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        android:background="#666666"
         android:textSize="15sp" />
 </LinearLayout>
