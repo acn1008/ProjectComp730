@@ -11,7 +11,7 @@
 
 ## Visual Aids
 
-### Background of app will change based on how close the output number is to the freezing or boiling point. 
+### Background of application will change based on how the converted output (temperature) falls within, or close to the freezing or boiling point. Freezing temperatures will have a blue background. Boiling temperatures will have a red background. Temperatures between freezing and boiling will have a green background. This is for both Fahrenheit and Celsius temperatures. The default background color is purple before a temperature is entered to be converted to either Fahrenheit or Celisius via the drop-down menu selection.
 
 ## Test Cases to Follow
 
