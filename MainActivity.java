@@ -1,5 +1,8 @@
 package com.example.tempconverterbothfarenheitandcelsius;
 
+import static android.graphics.Color.BLUE;
+import static android.graphics.Color.WHITE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             //Default background is purple
             if ((int) degFar <= 32) {
                 LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(Color.BLUE);
+                bgElement.setBackgroundColor(BLUE);
             }
             //Boiling temperature 212 degrees Fahrenheit or above would have red background
             //Default background is purple
@@ -137,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             //Default background is purple
             if ((int)degCel <= 0) {
                 LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(Color.BLUE);
+                bgElement.setBackgroundColor(BLUE);
             }
             //Boiling temperature 100 degrees Celsius or above would have red background
             //Default background is purple
