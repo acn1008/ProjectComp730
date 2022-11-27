@@ -29,8 +29,6 @@ public class ConverterClassTest extends TestCase {
 
     public void testF2c_fn() {
 
-        //double delta = .05;
-
         ConverterClass converterClassA = new ConverterClass();
         assertEquals(0.0, converterClassA.f2c_fn((double) 32));
 
