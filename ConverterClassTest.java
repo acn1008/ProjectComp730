@@ -10,40 +10,35 @@ public class ConverterClassTest extends TestCase {
 
     public void testC2f_fn() {
 
-        double delta = .05;
-
-    //Note ".05" for variable named double delta as the actual result to have the assertion
-    // hold true must be within 5 percent of the actual value
+    //Used double type for temperature to be converted to Fahrenheit from Celsius. The assertion
+    //is checked as actual actual value is compared to the what we entered as the expected value.
 
         ConverterClass converterClass = new ConverterClass();
-        assertEquals(32.0, converterClass.c2f_fn(0), delta);
+        assertEquals(32.0, converterClass.c2f_fn((double) 0));
 
         ConverterClass converterClass1 = new ConverterClass();
-        assertEquals(212.00, converterClass1.c2f_fn(100),delta);
+        assertEquals(212.0, converterClass1.c2f_fn((double) 100));
 
         ConverterClass converterClass2 = new ConverterClass();
-        assertEquals(104.0, converterClass2.c2f_fn(40), delta);
+        assertEquals(104.0, converterClass2.c2f_fn((double) 40));
 
     }
 
-    //The following test will test Fahrenheit to Celsius as stated in read me file
-    //Note ".05" for variable named double delta for third example as the actual result
-    //is 79.44444444444444 and we only wanted to have the assertion hold true within 5 percent
-    // of the actual value
+    //Used double type for temperature to be converted to Celsius from Fahrenheit. The assertion
+    //is checked as actual actual value is compared to the what we entered as the expected value.
 
     public void testF2c_fn() {
 
-        double delta = .05;
+        //double delta = .05;
 
         ConverterClass converterClassA = new ConverterClass();
-        assertEquals(0.0, converterClassA.f2c_fn(32), delta);
+        assertEquals(0.0, converterClassA.f2c_fn((double) 32));
 
         ConverterClass converterClassB = new ConverterClass();
-        assertEquals(100, converterClassB.f2c_fn(212), delta);
+        assertEquals(100.0, converterClassB.f2c_fn((double) 212));
 
         ConverterClass converterClassC = new ConverterClass();
-        assertEquals(79.4, converterClassC.f2c_fn(175), delta);
-
+        assertEquals(79.44444444444444 , converterClassC.f2c_fn((double) 175));
 
     }
 }
