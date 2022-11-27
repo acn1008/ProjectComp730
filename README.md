@@ -19,6 +19,8 @@
 
 ### Input 0 and convert from Celsius to Fahrenheit; result will be 32 and bar will be empty.
 
+### Input 32 and covert from Fahrenheit to Celsius; result will be 0 and bar will be empty.
+
 ### Input 212 and convert from Fahrenheit to Celsius; result will be 100 with a full bar.
 
 ### Input 40 and convert from Celsius to Fahrenheit; result will be 104 and the bar will be about one-third full.
