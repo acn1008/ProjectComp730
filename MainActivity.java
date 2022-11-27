@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         spinner_convert.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+                ((TextView) parent.getChildAt(0)).setBackgroundColor(BLUE);
+                ((TextView) parent.getChildAt(0)).setTextColor(WHITE);
+                ((TextView) parent.getChildAt(0)).setTextSize(18);
                 //connects items String to position within dropdown
                 Log.v("item", (String) parent.getItemAtPosition(position));
                 if (position == 0){
