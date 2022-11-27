@@ -27,7 +27,7 @@
         android:id="@+id/authors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="27dp"
         android:text="@string/temperature_converter_by_andre_nasrah_ellie_brown"
         android:textAlignment="center"
         android:textColor="#FAFAFA"
@@ -47,48 +47,37 @@
         android:textAlignment="center"
         android:textStyle="italic"
         android:textColorHint="#FFF9C4"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:importantForAutofill="no" />
 
-   <!--Text to tell user how the dropdown menu works-->
-    <TextView
-        android:id="@+id/dropdown_info"
-        android:layout_width="290dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Click on the dropdown menu to select a type of conversion you want to calculate."
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:textColor="#FAFAFA"
-        android:background="#696969"
-        android:textSize="15sp" />
-
-    <!--Dropdown menu to choose which conversion to calculate-->
+    <!-- Text to tell user how the dropdown menu works-->
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="250dp"
-        android:layout_height="30dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
         android:spinnerMode="dropdown"
-        android:textSize="23dp"
-        android:textAlignment="center"
-        android:layout_gravity="center"/>
+        android:text="@string/click_on_the_dropdown_menu_to_select_a_type_of_conversion_you_want_to_calculate"
+        android:textSize="23sp"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <!--Button to calculate conversion output-->
     <Button
         android:id="@+id/go_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calculate Conversion"
+        android:text="@string/calculate_conversion"
         android:textAlignment="center"
         android:textSize="25sp"
         android:layout_gravity="center"
         android:layout_marginTop="35dp"
-        android:layout_marginBottom="-10dp"
+        android:layout_marginBottom="-15dp"
         android:textAllCaps="false"/>
+
+    <!--Textview which displays calculated conversion output-->
 
     <TextView
         android:id="@+id/output_tv"
@@ -103,90 +92,101 @@
         android:textStyle="bold"
         android:textSize="22sp" />
 
-  <!-- Freezing button used as a label to mark progress bar readings -->
+    <!-- Freezing button used as a label to mark progress bar readings -->
+
+    <!-- Continuing of Freezing textview to have disclaimer be across application -->
+
     <TextView
         android:id="@+id/freezing"
-        android:layout_width="222dp"
+        android:layout_width="206dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-47dp"
+        android:layout_marginBottom="61dp"
+        android:background="#696969"
+        android:text="@string/freezing_0_100"
         android:textAlignment="center"
-        android:textSize="25sp"
         android:textAllCaps="false"
         android:textColor="#FAFAFA"
-        android:background="#696969"
-        android:text="Freezing = 0%   "
-        android:layout_marginBottom="60dp"
-        android:layout_marginLeft="0dp"
+        android:textSize="25sp"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/freezing_description"
-        android:layout_width="220dp"
+        android:layout_width="206dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_gravity="start"
         android:textAllCaps="false"
         android:textAlignment="center"
         android:textSize="15sp"
         android:textColor="#FAFAFA"
         android:background="#696969"
-        android:text="        Freezing = Blue background.      "
-        android:layout_marginTop="-61dp"
-        android:layout_marginBottom="-53dp"
-        android:layout_marginRight="189dp"
+        android:text="@string/freezing_blue_background"
+        android:layout_marginTop="-62dp"
+        android:layout_marginBottom="-24dp"
+        android:layout_marginEnd="0dp"
         tools:ignore="RtlCompat" />
 
     <!-- Boiling button used as a label to mark progress bar readings -->
-    <TextView
-        android:id="@+id/boiling"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginBottom="58dp"
-        android:background="#696969"
-        android:text="Boiling = 100%"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FAFAFA"
-        android:textSize="25sp"
-        tools:ignore="RtlCompat" />
 
-    <TextView
-        android:id="@+id/boiling_description"
-        android:layout_width="197dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:textAllCaps="false"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textColor="#FAFAFA"
-        android:background="#696969"
-        android:text=" Boiling = Red background."
-        android:layout_marginTop="-59dp"
-        android:layout_marginBottom="0dp"
-        tools:ignore="RtlCompat" />
-    
     <!-- Progress bar used as a marker to determine on a scale from
     0 pct (frezing) to 100 pct (boiling) after conversion pulling from
      drawable/custom_progress_bg-->
+
+    <TextView
+        android:id="@+id/boiling"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+
+        android:layout_marginTop="-29dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="1dp"
+        android:background="#696969"
+        android:text="@string/boiling_100"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FAFAFA"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/boiling_description"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="-1dp"
+        android:layout_marginBottom="-2dp"
+        android:background="#696969"
+        android:text="@string/boiling_red_background"
+        android:textAlignment="textEnd"
+        android:textAllCaps="false"
+        android:textColor="#FAFAFA"
+        android:textSize="15sp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="0dp"
         style="?android:attr/progressBarStyleHorizontal"
         android:progressDrawable="@drawable/custom_progress_bg"/>
 
+
+
     <!--Disclaimer information about how the app works-->
-     <TextView
+
+    <TextView
         android:id="@+id/disclaimer1"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginTop="0dp"
-        android:text="When celsius is converted to fahrenheit freezing is 32 degrees while boiling is 212 degrees.
-
-                              When fahrenheit is converted to celsius, freezing is 0 degrees while boiling is 100 degrees."
+        android:layout_height="71dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:background="#696969"
+        android:text="@string/when_celsius_is_converted_to_fahrenheit_freezing_is_32_degrees_while_boiling_is_212_degrees_when_fahrenheit_is_converted_to_celsius_freezing_is_0_degrees_while_boiling_is_100_degrees"
         android:textAlignment="center"
         android:textColor="#FAFAFA"
-        android:background="#696969"
         android:textSize="15sp" />
 </LinearLayout>
