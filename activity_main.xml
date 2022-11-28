@@ -32,6 +32,7 @@
         android:textAlignment="center"
         android:textColor="#FAFAFA"
         android:textStyle="bold"
+        android:background="#696969"
         android:textSize="15sp" />
 
     <!-- This is where the temperature to be converted is entered -->
@@ -49,12 +50,13 @@
         android:textColorHint="#FFF9C4"
         android:textSize="22sp"
         android:importantForAutofill="no" />
+
     <!--Text to tell user how the dropdown menu works-->
     <TextView
         android:id="@+id/dropdown_info"
         android:layout_width="290dp"
         android:layout_height="43dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="3dp"
         android:layout_marginBottom="3dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -64,6 +66,7 @@
         android:textColor="#FAFAFA"
         android:background="#696969"
         android:textSize="15sp" />
+
     <!-- Text to tell user how the dropdown menu works-->
     <Spinner
         android:id="@+id/spinner"
@@ -128,7 +131,7 @@
 
     <TextView
         android:id="@+id/freezing_description"
-        android:layout_width="206dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:textAllCaps="false"
@@ -150,7 +153,7 @@
 
     <TextView
         android:id="@+id/boiling"
-        android:layout_width="206dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
 
@@ -166,7 +169,7 @@
 
     <TextView
         android:id="@+id/boiling_description"
-        android:layout_width="187dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="-1dp"
