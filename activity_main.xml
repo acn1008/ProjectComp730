@@ -49,7 +49,21 @@
         android:textColorHint="#FFF9C4"
         android:textSize="22sp"
         android:importantForAutofill="no" />
-
+    <!--Text to tell user how the dropdown menu works-->
+    <TextView
+        android:id="@+id/dropdown_info"
+        android:layout_width="290dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Click on the dropdown menu to select a type of conversion you want to calculate."
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="#FAFAFA"
+        android:background="#696969"
+        android:textSize="15sp" />
     <!-- Text to tell user how the dropdown menu works-->
     <Spinner
         android:id="@+id/spinner"
