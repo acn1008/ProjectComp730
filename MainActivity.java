@@ -125,22 +125,24 @@ public class MainActivity extends AppCompatActivity {
             CurrentProgress = 0;
             //Freezing temperature 32 degrees Fahrenheit or below would have blue background
             //Default background is purple
-            if ((int) degFar <= 32) {
+            if (degFar <= 32){ //if output from conversion is less than 32 color = cold (blue)
                 LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(BLUE);
+                bgElement.setBackgroundColor(Color.parseColor("#00296b"));
+                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                tElement.setTextColor(Color.parseColor("#a2aab8"));
             }
-            //Boiling temperature 212 degrees Fahrenheit or above would have red background
-            //Default background is purple
-            else if ((int)degFar >= 212) {
+            else if (degFar >= 212) { //if output from conversion is greater than 212 color = hot (red)
                 LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(Color.RED);
+                bgElement.setBackgroundColor(Color.parseColor("#e60805"));
+                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                tElement.setTextColor(Color.parseColor("#610000"));
             }
-            //Temperatures in between freezing and boiling would have green background
-            //Default background is purple
-            else {
-                    LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                    bgElement.setBackgroundColor(Color.GREEN);
-                }
+            else { //if output from conversion is in-between 32 and 212 color = medium (purple)
+                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                bgElement.setBackgroundColor(Color.parseColor("#599146"));
+                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                tElement.setTextColor(Color.parseColor("#22590f"));
+            }
         }
 
         if (num == 1) {
@@ -158,21 +160,23 @@ public class MainActivity extends AppCompatActivity {
             CurrentProgress = 0;
             //Freezing temperature 0 degrees Celsius or below would have blue background
             //Default background is purple
-            if ((int)degCel <= 0) {
+            if (degCel <= 0){ //if output from conversion is less than 0, color = cold (blue)
                 LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(BLUE);
+                bgElement.setBackgroundColor(Color.parseColor("#00296b"));
+                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                tElement.setTextColor(Color.parseColor("#a2aab8"));
             }
-            //Boiling temperature 100 degrees Celsius or above would have red background
-            //Default background is purple
-            else if ((int)degCel >= 100) {
+            else if (degCel >= 100) { //if output from conversion is greater than 100 color = hot (red)
                 LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(Color.RED);
+                bgElement.setBackgroundColor(Color.parseColor("#e60805"));
+                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                tElement.setTextColor(Color.parseColor("#610000"));
             }
-            //Temperatures in between freezing and boiling would have green background
-            //Default background is purple
-            else {
-                    LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                    bgElement.setBackgroundColor(Color.GREEN);
+            else { //if output from conversion is in-between 0 and 100 color = medium (purple)
+                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                bgElement.setBackgroundColor(Color.parseColor("#599146"));
+                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                tElement.setTextColor(Color.parseColor("#22590f"));
             }
         }
         
