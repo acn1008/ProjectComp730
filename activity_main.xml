@@ -194,16 +194,30 @@
 
     <!--Disclaimer information about how the app works-->
 
-    <TextView
+   <TextView
         android:id="@+id/disclaimer1"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:background="#696969"
-        android:text="@string/when_celsius_is_converted_to_fahrenheit_freezing_is_32_degrees_while_boiling_is_212_degrees_when_fahrenheit_is_converted_to_celsius_freezing_is_0_degrees_while_boiling_is_100_degrees"
+        android:layout_height="75dp"
+        android:layout_marginTop="0dp"
+        android:text="Example1: When celsius is converted to fahrenheit freezing is 32 degrees while boiling is 212 degrees.
+
+                              Example2: When fahrenheit is converted to celsius, freezing is 0 degrees while boiling is 100 degrees.
+        "
         android:textAlignment="center"
         android:textColor="#FAFAFA"
+        android:background="#696969"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/disclaimer2"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:layout_marginTop="0dp"
+        android:text="Background color will change to Blue when the result from the conversion is equal to or below freezing point.
+        Background color will change to Green when the result from the conversion is between freezing and boiling point.
+        Background color will change to Red when result from conversion is equal to or above boiling point."
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:background="#696969"
         android:textSize="15sp" />
 </LinearLayout>
