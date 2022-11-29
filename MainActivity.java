@@ -16,7 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Adapter;
+
 
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,30 +28,31 @@ public class MainActivity extends AppCompatActivity {
     private EditText input_Edt;
     private TextView output_TV;
     private int CurrentProgress = 0;
-    private ProgressBar progressBar;
-    private Object AdapterView;
+
+    public MainActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        go_Btn = findViewById(R.id.go_btn);; //button celsius to fahrenheit and fahrenheit to celsius calculation via ConverterClass
+        go_Btn = findViewById(R.id.go_btn);//button celsius to fahrenheit and fahrenheit to celsius calculation via ConverterClass
         input_Edt = findViewById(R.id.input_edt); // temperature that is inputted prior to calculation
         output_TV = findViewById(R.id.output_tv); // temperature that is outputted after calculation
 
-        Spinner spinner_convert = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner_convert = findViewById(R.id.spinner);
         //creates new Spinner using the XML spinner formatting
         String[] items = new String[] {"Celsius to Fahrenheit", "Fahrenheit to Celsius", "Kelvin to Celsius", "Kelvin to Fahrenheit", "Fahrenheit to Kelvin", "Celsius to Kelvin"};
         //creates a list of dropdown options
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
         //create a new adapter to connect items to a spinner-dropdown format
         spinner_convert.setAdapter(adapter);
         //connects spinner to adapter
         spinner_convert.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
-                ((TextView) parent.getChildAt(0)).setBackgroundColor(BLUE);
+                parent.getChildAt(0).setBackgroundColor(BLUE);
                 ((TextView) parent.getChildAt(0)).setTextColor(WHITE);
                 ((TextView) parent.getChildAt(0)).setTextSize(18);
                 //connects items String to position within dropdown
@@ -68,22 +69,22 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (position == 2){
                     //gets position of which item in the dropdown was selected
-                    //if position 0 (Celsius to Fahrenheit) selected then pass 0 to go_calculate
+                    //if position 2 (Kelvin to Celsius) selected then pass 0 to go_calculate
                     go_calculate(2);
                 }
                 else if (position == 3){
                     //gets position of which item in the dropdown was selected
-                    //if position 0 (Celsius to Fahrenheit) selected then pass 0 to go_calculate
+                    //if position 3 (Kelvin to Fahrenheit) selected then pass 0 to go_calculate
                     go_calculate(3);
                 }
                 else if (position == 4){
                     //gets position of which item in the dropdown was selected
-                    //if position 0 (Celsius to Fahrenheit) selected then pass 0 to go_calculate
+                    //if position 4 (Fahrenheit to Kevin) selected then pass 0 to go_calculate
                     go_calculate(4);
                 }
                 else if (position == 5){
                     //gets position of which item in the dropdown was selected
-                    //if position 0 (Celsius to Fahrenheit) selected then pass 0 to go_calculate
+                    //if position 5 (Celsius to Kelvin) selected then pass 0 to go_calculate
                     go_calculate(5);
                 }
             }
@@ -99,6 +100,10 @@ public class MainActivity extends AppCompatActivity {
             //pass num 1 or 0 from dropdown selection to userInput to calculate correct conversion
             //0 = Celsius to Fahrenheit
             //1 = Fahrenheit to Celsius
+            //2 = Kelvin to Celsius
+            //3 = Kelvin to Fahrenheit
+            //4 = Fahrenheit to Kelvin
+            //5 = Celsius to Kelvin
             userInput(num);
 
         });
@@ -108,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void userInput(int num) {
         ProgressBar progressBar = findViewById(R.id.progressBar);
-
 
         if (num == 0) {
 
@@ -125,23 +129,27 @@ public class MainActivity extends AppCompatActivity {
             CurrentProgress = 0;
             //Freezing temperature 32 degrees Fahrenheit or below would have blue background
             //Default background is purple
-            if (degFar <= 32){ //if output from conversion is less than 32 color = cold (blue)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            if ((int) degFar <= 32) {
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#00296b"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#a2aab8"));
             }
-            else if (degFar >= 212) { //if output from conversion is greater than 212 color = hot (red)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            //Boiling temperature 212 degrees Fahrenheit or above would have red background
+            //Default background is purple
+            else if ((int)degFar >= 212) {
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#e60805"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#610000"));
             }
-            else { //if output from conversion is in-between 32 and 212 color = medium (purple)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(Color.parseColor("#599146"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
-                tElement.setTextColor(Color.parseColor("#22590f"));
+            //Temperatures in between freezing and boiling would have green background
+            //Default background is purple
+            else {
+                    LinearLayout bgElement = findViewById(R.id.background_layer);
+                    bgElement.setBackgroundColor(Color.parseColor("#599146"));
+                    TextView tElement = findViewById(R.id.output_tv);
+                    tElement.setTextColor(Color.parseColor("#22590f"));
             }
         }
 
@@ -160,32 +168,36 @@ public class MainActivity extends AppCompatActivity {
             CurrentProgress = 0;
             //Freezing temperature 0 degrees Celsius or below would have blue background
             //Default background is purple
-            if (degCel <= 0){ //if output from conversion is less than 0, color = cold (blue)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            if ((int)degCel <= 0) {
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#00296b"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#a2aab8"));
             }
-            else if (degCel >= 100) { //if output from conversion is greater than 100 color = hot (red)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            //Boiling temperature 100 degrees Celsius or above would have red background
+            //Default background is purple
+            else if ((int)degCel >= 100) {
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#e60805"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#610000"));
             }
-            else { //if output from conversion is in-between 0 and 100 color = medium (purple)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
-                bgElement.setBackgroundColor(Color.parseColor("#599146"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
-                tElement.setTextColor(Color.parseColor("#22590f"));
+            //Temperatures in between freezing and boiling would have green background
+            //Default background is purple
+            else {
+                    LinearLayout bgElement = findViewById(R.id.background_layer);
+                    bgElement.setBackgroundColor(Color.parseColor("#599146"));
+                    TextView tElement = findViewById(R.id.output_tv);
+                    tElement.setTextColor(Color.parseColor("#22590f"));
             }
         }
-        
+
         if (num == 2) {
             ConverterClass converterClass = new ConverterClass();
             double degKel = Double.parseDouble(input_Edt.getText().toString());
-            //Takes input value from input_Edt and sets it to degCal
+            //Takes input value from input_Edt and sets it to degKel
             double degCel = converterClass.k2c_fn(degKel);
-            //The output of converterClass using degCal is put into degFar as the result
+            //The output of converterClass using degCal is put into degKel as the result
             int final_Cel = (int) degCel;
             //Progress bar needs to be shifted 32 to the left so that is aligned with both freezing points
             //C freezing = 0 and F freezing = 32
@@ -199,21 +211,21 @@ public class MainActivity extends AppCompatActivity {
             CurrentProgress = 0;
             //Resets progress bar to 0
             if (degCel <= 0){ //if output from conversion is less than 32 color = cold (blue)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#00296b"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#a2aab8"));
             }
             else if (degCel >= 100) { //if output from conversion is greater than 212 color = hot (red)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#e60805"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#610000"));
             }
             else { //if output from conversion is in-between 32 and 212 color = medium (purple)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#599146"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#22590f"));
             }
         }
@@ -226,7 +238,6 @@ public class MainActivity extends AppCompatActivity {
             //The output of converterClass using degKel is put into degFar as the result
             int final_Far = (int) degFar - 32;
             //Progress bar needs to be shifted 32 to the left so that is aligned with both freezing points
-            //K freezing = 273 and F freezing = 32
             output_TV.setText(Double.toString(degFar));
             progressBar.setMax(180);
             //Progress bar is set to have a max of 180 because 212 is boiling in F and 100 is boiling in C
@@ -237,21 +248,21 @@ public class MainActivity extends AppCompatActivity {
             CurrentProgress = 0;
             //Resets progress bar to 0
             if (degFar <= 32){ //if output from conversion is less than 32 color = cold (blue)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#00296b"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#a2aab8"));
             }
             else if (degFar >= 212) { //if output from conversion is greater than 212 color = hot (red)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#e60805"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#610000"));
             }
             else { //if output from conversion is in-between 32 and 212 color = medium (purple)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#599146"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#22590f"));
             }
         }
@@ -259,9 +270,9 @@ public class MainActivity extends AppCompatActivity {
         if (num == 4) {
             ConverterClass converterClass = new ConverterClass();
             double degFar = Double.parseDouble(input_Edt.getText().toString());
-            //Takes input value from input_Edt and sets it to degCal
+            //Takes input value from input_Edt and sets it to degKel
             double degKel = converterClass.f2k_fn(degFar);
-            //The output of converterClass using degKel is put into degFar as the result
+            //The output of converterClass using degKel is put into degKel as the result
             int final_Kel = (int) degKel - 273;
             //Progress bar needs to be shifted 273 to the left so that is aligned with both freezing points
             //F freezing = 32 and F freezing = 273
@@ -275,26 +286,25 @@ public class MainActivity extends AppCompatActivity {
             progressBar.setProgress(CurrentProgress);
             CurrentProgress = 0;
             //Resets progress bar to 0
-            if (degKel <= 273){ //if output from conversion is less than 273 color = cold (blue)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            if (degKel <= 273.15){ //if output from conversion is less than 273 color = cold (blue)
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#00296b"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#a2aab8"));
             }
-            else if (degKel >= 373) { //if output from conversion is greater than 373 color = hot (red)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            else if (degKel >= 373.15) { //if output from conversion is greater than 373 color = hot (red)
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#e60805"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#610000"));
             }
             else { //if output from conversion is in-between 273 and 373 color = medium (purple)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#599146"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#22590f"));
             }
         }
-
         if (num == 5) {
             ConverterClass converterClass = new ConverterClass();
             double degCel = Double.parseDouble(input_Edt.getText().toString());
@@ -314,22 +324,20 @@ public class MainActivity extends AppCompatActivity {
             progressBar.setProgress(CurrentProgress);
             CurrentProgress = 0;
             //Resets progress bar to 0
-            if (degKel <= 273){ //if output from conversion is less than 273 color = cold (blue)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            if (degKel <= 273.15) { //if output from conversion is less than 273 color = cold (blue)
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#00296b"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#a2aab8"));
-            }
-            else if (degKel >= 373) { //if output from conversion is greater than 373 color = hot (red)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            } else if (degKel >= 373.15) { //if output from conversion is greater than 373 color = hot (red)
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#e60805"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#610000"));
-            }
-            else { //if output from conversion is in-between 273 and 373 color = medium (purple)
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.background_layer);
+            } else { //if output from conversion is in-between 273 and 373 color = medium (purple)
+                LinearLayout bgElement = findViewById(R.id.background_layer);
                 bgElement.setBackgroundColor(Color.parseColor("#599146"));
-                TextView tElement = (TextView) findViewById(R.id.output_tv);
+                TextView tElement = findViewById(R.id.output_tv);
                 tElement.setTextColor(Color.parseColor("#22590f"));
             }
         }
