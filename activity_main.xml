@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Linear Layout chosen to design application-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,6 +13,7 @@
     tools:context=".MainActivity">
 
     <!-- static image-doesn't change in application -->
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
@@ -23,6 +25,7 @@
         tools:ignore="ImageContrastCheck" />
 
     <!-- project title and authors -->
+
     <TextView
         android:id="@+id/authors"
         android:layout_width="match_parent"
@@ -36,6 +39,7 @@
         android:textSize="15sp" />
 
     <!-- This is where the temperature to be converted is entered -->
+
     <EditText
         android:id="@+id/input_edt"
         android:layout_width="250dp"
@@ -52,6 +56,7 @@
         android:importantForAutofill="no" />
 
     <!--Text to tell user how the dropdown menu works-->
+
     <TextView
         android:id="@+id/dropdown_info"
         android:layout_width="290dp"
@@ -60,7 +65,7 @@
         android:layout_marginBottom="3dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="Click on the dropdown menu to select a type of conversion you want to calculate."
+        android:text="@string/Click_on_the_dropdown_menu_to_select_a_type_of_conversion_you_want_to_calculate"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:textColor="#FAFAFA"
@@ -68,20 +73,23 @@
         android:textSize="15sp" />
 
     <!-- Text to tell user how the dropdown menu works-->
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="13dp"
         android:layout_marginBottom="5dp"
         android:spinnerMode="dropdown"
         android:text="@string/click_on_the_dropdown_menu_to_select_a_type_of_conversion_you_want_to_calculate"
         android:textSize="23sp"
         tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
+
     <!--Button to calculate conversion output-->
+
     <Button
         android:id="@+id/go_btn"
         android:layout_width="match_parent"
@@ -90,7 +98,7 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:layout_gravity="center"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="-15dp"
         android:textAllCaps="false"/>
 
@@ -101,17 +109,15 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="23dp"
         android:layout_marginBottom="50dp"
         android:text="@string/degrees"
         android:textAlignment="center"
         android:textColor="#F06292"
         android:textStyle="bold"
-        android:textSize="22sp" />
+        android:textSize="19sp" />
 
     <!-- Freezing button used as a label to mark progress bar readings -->
-
-    <!-- Continuing of Freezing textview to have disclaimer be across application -->
 
     <TextView
         android:id="@+id/freezing"
@@ -128,6 +134,8 @@
         android:textColor="#FAFAFA"
         android:textSize="25sp"
         tools:ignore="RtlCompat" />
+
+    <!-- Disclaimer about freezing temp is 0pct on progress bar and blue badkground-->
 
     <TextView
         android:id="@+id/freezing_description"
@@ -147,16 +155,11 @@
 
     <!-- Boiling button used as a label to mark progress bar readings -->
 
-    <!-- Progress bar used as a marker to determine on a scale from
-    0 pct (frezing) to 100 pct (boiling) after conversion pulling from
-     drawable/custom_progress_bg-->
-
-    <TextView
+     <TextView
         android:id="@+id/boiling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-
         android:layout_marginTop="-29dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="1dp"
@@ -166,6 +169,9 @@
         android:textAllCaps="false"
         android:textColor="#FAFAFA"
         android:textSize="25sp" />
+
+
+    <!--Disclaimer about boiling temp is 100pct on progress bar and red badkground -->
 
     <TextView
         android:id="@+id/boiling_description"
@@ -181,6 +187,10 @@
         android:textColor="#FAFAFA"
         android:textSize="15sp" />
 
+    <!-- Progress bar used as a marker to determine on a scale from
+    0 pct (frezing) to 100 pct (boiling) after conversion pulling from
+    drawable/custom_progress_bg-->
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
@@ -190,34 +200,32 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:progressDrawable="@drawable/custom_progress_bg"/>
 
+    <!--Disclaimer about temperature conversion explainations -->
 
-
-    <!--Disclaimer information about how the app works-->
-
-   <TextView
+    <TextView
         android:id="@+id/disclaimer1"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:text="Example1: When celsius is converted to fahrenheit freezing is 32 degrees while boiling is 212 degrees.
-
-                              Example2: When fahrenheit is converted to celsius, freezing is 0 degrees while boiling is 100 degrees.
-        "
+        android:layout_marginEnd="0dp"
+        android:background="#696969"
+        android:text="@string/when_celsius_is_converted_to_fahrenheit_freezing_is_32_degrees_while_boiling_is_212_degrees_when_fahrenheit_is_converted_to_celsius_freezing_is_0_degrees_while_boiling_is_100_degrees"
         android:textAlignment="center"
         android:textColor="#FAFAFA"
-        android:background="#696969"
         android:textSize="15sp" />
+
+    <!--Disclaimer about green background color if temperature ranges are between freezing and boiling -->
 
     <TextView
         android:id="@+id/disclaimer2"
         android:layout_width="match_parent"
         android:layout_height="135dp"
         android:layout_marginTop="0dp"
-        android:text="Background color will change to Blue when the result from the conversion is equal to or below freezing point.
-        Background color will change to Green when the result from the conversion is between freezing and boiling point.
-        Background color will change to Red when result from conversion is equal to or above boiling point."
+        android:text="@string/background_color_will_change_to_blue_when_the_result_from_the_conversion_is_equal_to_or_below_freezing_point_background_color_will_change_to_green_when_the_result_from_the_conversion_is_between_freezing_and_boiling_point_background_color_will_change_to_red_when_result_from_conversion_is_equal_to_or_above_boiling_point"
         android:textAlignment="center"
         android:textColor="#FAFAFA"
         android:background="#696969"
         android:textSize="15sp" />
+
 </LinearLayout>
