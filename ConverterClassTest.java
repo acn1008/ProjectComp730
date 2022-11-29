@@ -2,41 +2,125 @@ package com.example.tempconverterbothfarenheitandcelsius;
 
 import junit.framework.TestCase;
 
-//Testing class created to test ConverterClass
+//Testing class created to test ConverterClass. 18 tests total (3 for each function)
 
 public class ConverterClassTest extends TestCase {
 
-    //The following test will test Celsius to Fahrenheit as stated in read me file
+    public void test1C2f_fn() {
 
-    public void testC2f_fn() {
-
+    //The following three tests will test Celsius to Fahrenheit as stated in read me file
     //Used double type for temperature to be converted to Fahrenheit from Celsius. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
 
-        ConverterClass converterClass = new ConverterClass();
-        assertEquals(32.0, converterClass.c2f_fn((double) 0));
-
-        ConverterClass converterClass1 = new ConverterClass();
-        assertEquals(212.0, converterClass1.c2f_fn((double) 100));
-
-        ConverterClass converterClass2 = new ConverterClass();
-        assertEquals(104.0, converterClass2.c2f_fn((double) 40));
-
+        ConverterClass converterClassC2FTest1 = new ConverterClass();
+        assertEquals(32.0, converterClassC2FTest1.c2f_fn(0));
     }
 
+    public void test2c2f_fn() {
+        ConverterClass converterClassC2FTest2 = new ConverterClass();
+        assertEquals(212.0, converterClassC2FTest2.c2f_fn(100));
+    }
+
+    public void test3c2f_fn() {
+        ConverterClass converterClassC2FTest3 = new ConverterClass();
+        assertEquals(104.0, converterClassC2FTest3.c2f_fn(40));
+
+    }
+    //The following three tests will test Fahrenheit to Celsius as stated in read me file
     //Used double type for temperature to be converted to Celsius from Fahrenheit. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
 
-    public void testF2c_fn() {
+    public void test1F2c_fn() {
 
-        ConverterClass converterClassA = new ConverterClass();
-        assertEquals(0.0, converterClassA.f2c_fn((double) 32));
-
-        ConverterClass converterClassB = new ConverterClass();
-        assertEquals(100.0, converterClassB.f2c_fn((double) 212));
-
-        ConverterClass converterClassC = new ConverterClass();
-        assertEquals(79.44444444444444 , converterClassC.f2c_fn((double) 175));
-
+        ConverterClass converterClassF2CTest1 = new ConverterClass();
+        assertEquals(0.0, converterClassF2CTest1.f2c_fn(32));
     }
+
+    public void test2F2c_fn() {
+
+        ConverterClass converterClassF2CTest2 = new ConverterClass();
+        assertEquals(100.0, converterClassF2CTest2.f2c_fn(212));
+    }
+
+    public void test3F2c_fn() {
+
+        ConverterClass converterClassF2CTest3 = new ConverterClass();
+        assertEquals(79.44444444444444 , converterClassF2CTest3.f2c_fn(175));
+    }
+
+    //The following three tests will test Kelvin to Celsius as stated in read me file
+    //Used double type for temperature to be converted to Celsius from Kelvin. The assertion
+    //is checked as actual actual value is compared to the what we entered as the expected value.
+
+    public void test1K2c_fn() {
+        ConverterClass converterClassK2CTest1 = new ConverterClass();
+        assertEquals(100.0, converterClassK2CTest1.k2c_fn(373.15));
+    }
+
+    public void test2K2c_fn() {
+        ConverterClass converterClassK2CTest2 = new ConverterClass();
+        assertEquals(0.0, converterClassK2CTest2.k2c_fn(273.15));
+    }
+
+    public void test3K2c_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(50.0, converterClassK2CTest3.k2c_fn(323.15));
+    }
+
+    //The following three tests will test Kelvin to Fahrenheit as stated in read me file
+    //Used double type for temperature to be converted to Fahrenheit from Kelvin. The assertion
+    //is checked as actual actual value is compared to the what we entered as the expected value.
+
+    public void test1K2f_fn() {
+        ConverterClass converterClassK2CTest1 = new ConverterClass();
+        assertEquals(212.0, converterClassK2CTest1.k2f_fn(373.15));
+    }
+
+    public void test2K2f_fn() {
+        ConverterClass converterClassK2CTest2 = new ConverterClass();
+        assertEquals(32.0, converterClassK2CTest2.k2f_fn(273.15));
+    }
+
+    public void test3K2f_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(122.0, converterClassK2CTest3.k2f_fn(323.15));
+    }
+
+    //The following three tests will test Fahrenheit to Kelvin as stated in read me file
+    //Used double type for temperature to be converted to Kelvin from Fahrenheit. The assertion
+    //is checked as actual actual value is compared to the what we entered as the expected value.
+    public void test1F2k_fn() {
+        ConverterClass converterClassK2CTest1 = new ConverterClass();
+        assertEquals(373.15, converterClassK2CTest1.f2k_fn(212.00));
+    }
+
+    public void test2F2k_fn() {
+        ConverterClass converterClassK2CTest2 = new ConverterClass();
+        assertEquals(273.15, converterClassK2CTest2.f2k_fn(32.0));
+    }
+
+    public void test3F2k_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(323.15, converterClassK2CTest3.f2k_fn(122.00));
+    }
+
+    //The following three tests will test Celsius to Kelvin as stated in read me file
+    //Used double type for temperature to be converted to Kelvin from Celsius. The assertion
+    //is checked as actual actual value is compared to the what we entered as the expected value.
+
+    public void test1C2k_fn() {
+        ConverterClass converterClassK2CTest1 = new ConverterClass();
+        assertEquals(373.15, converterClassK2CTest1.c2k_fn(100.0));
+    }
+
+    public void test2C2k_fn() {
+        ConverterClass converterClassK2CTest2 = new ConverterClass();
+        assertEquals(273.15, converterClassK2CTest2.c2k_fn(0.0));
+    }
+
+    public void test3C2k_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(323.15, converterClassK2CTest3.c2k_fn(50.0));
+    }
+
 }
