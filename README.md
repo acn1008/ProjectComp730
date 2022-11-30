@@ -37,3 +37,50 @@
 
 ### Input 175 and convert from Fahrenheit to Celsius; result will be 79.4 repeating.
   ### Progress bar will be 80% full and background will change to Green.
+  
+### Input 373.15 and convert from Kelvin to Celsius; result will be 100.
+  ### Progress bar will be 100% full and background will change to red.
+  
+### Input 273.15 and convert from Kelvin to Celsius; result will be 0.
+  ### Progress bar will be empty and background will change to blue.
+  
+### Input 323.15 and convert from Kelvin to Celsius; result will be 50.
+  ### Progress bar will be 50% full and background will change to green.
+  
+### Input 373.15 and convert from Kelvin to Fahrenheit; result will be 212.
+  ### Progress bar will be 100% full and background will change to red.
+  
+### Input 273.15 and convert from Kelvin to Fahrenheit; result will be 32.
+  ### Progress bar will be empty and background will change to blue.
+  
+### Input 323.15 and convert from Kelvin to Fahrenheit; result will be 122.
+  ### Progress bar will be 50% full and background will change to green.
+  
+### Input 212 and convert from Fahrenheit to Kelvin; result will be 373.15.
+  ### Progress bar will be 100% full and background will change to red.
+  
+### Input 32 and convert from Fahrenheit to Kelvin; result will be 273.15.
+  ### Progress bar will be empty and background will change to blue.
+  
+### Input 122 and convert from Fahrenheit to Kelvin; result will be 323.15.
+  ### Progress bar will be 50% full and background will change to green.
+  
+### Input 100 and convert from Fahrenheit to Kelvin; result will be 373.15.
+  ### Progress bar will be 100% full and background will change to red.
+  
+### Input 0 and convert from Fahrenheit to Kelvin; result will be 273.15.
+  ### Progress bar will be empty and background will change to blue.
+  
+### Input 50 and convert from Fahrenheit to Kelvin; result will be 323.15.
+  ### Progress bar will be 50% full and background will change to green.
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
