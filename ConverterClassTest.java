@@ -2,13 +2,14 @@ package com.example.tempconverterbothfarenheitandcelsius;
 
 import junit.framework.TestCase;
 
-//Testing class created to test ConverterClass. 18 tests total (3 for each function)
+//Testing class created to test ConverterClass. 24 tests total (4 for each function)
+//Test 4 for each function tests negative temperatures being converted
 
 public class ConverterClassTest extends TestCase {
 
     public void test1C2f_fn() {
 
-    //The following three tests will test Celsius to Fahrenheit as stated in read me file
+    //The following four tests will test Celsius to Fahrenheit as stated in read me file
     //Used double type for temperature to be converted to Fahrenheit from Celsius. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
 
@@ -26,7 +27,13 @@ public class ConverterClassTest extends TestCase {
         assertEquals(104.0, converterClassC2FTest3.c2f_fn(40));
 
     }
-    //The following three tests will test Fahrenheit to Celsius as stated in read me file
+
+    public void test4c2f_fn() {
+        ConverterClass converterClassC2FTest3 = new ConverterClass();
+        assertEquals(-148.0, converterClassC2FTest3.c2f_fn(-100));
+
+    }
+    //The following four tests will test Fahrenheit to Celsius as stated in read me file
     //Used double type for temperature to be converted to Celsius from Fahrenheit. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
 
@@ -48,7 +55,13 @@ public class ConverterClassTest extends TestCase {
         assertEquals(79.44444444444444 , converterClassF2CTest3.f2c_fn(175));
     }
 
-    //The following three tests will test Kelvin to Celsius as stated in read me file
+    public void test4F2c_fn() {
+
+        ConverterClass converterClassF2CTest1 = new ConverterClass();
+        assertEquals(-35.55555555555556, converterClassF2CTest1.f2c_fn(-32));
+    }
+
+    //The following four tests will test Kelvin to Celsius as stated in read me file
     //Used double type for temperature to be converted to Celsius from Kelvin. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
 
@@ -67,7 +80,12 @@ public class ConverterClassTest extends TestCase {
         assertEquals(50.0, converterClassK2CTest3.k2c_fn(323.15));
     }
 
-    //The following three tests will test Kelvin to Fahrenheit as stated in read me file
+    public void test4K2c_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(-646.30, converterClassK2CTest3.k2c_fn(-373.15));
+    }
+
+    //The following four tests will test Kelvin to Fahrenheit as stated in read me file
     //Used double type for temperature to be converted to Fahrenheit from Kelvin. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
 
@@ -86,7 +104,12 @@ public class ConverterClassTest extends TestCase {
         assertEquals(122.0, converterClassK2CTest3.k2f_fn(323.15));
     }
 
-    //The following three tests will test Fahrenheit to Kelvin as stated in read me file
+    public void test4K2f_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(-1131.34, converterClassK2CTest3.k2f_fn(-373.15));
+    }
+
+    //The following four tests will test Fahrenheit to Kelvin as stated in read me file
     //Used double type for temperature to be converted to Kelvin from Fahrenheit. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
     public void test1F2k_fn() {
@@ -104,7 +127,12 @@ public class ConverterClassTest extends TestCase {
         assertEquals(323.15, converterClassK2CTest3.f2k_fn(122.00));
     }
 
-    //The following three tests will test Celsius to Kelvin as stated in read me file
+    public void test4F2k_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(137.594444444444443, converterClassK2CTest3.f2k_fn(-212.00));
+    }
+
+    //The following four tests will test Celsius to Kelvin as stated in read me file
     //Used double type for temperature to be converted to Kelvin from Celsius. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
 
@@ -121,6 +149,11 @@ public class ConverterClassTest extends TestCase {
     public void test3C2k_fn() {
         ConverterClass converterClassK2CTest3 = new ConverterClass();
         assertEquals(323.15, converterClassK2CTest3.c2k_fn(50.0));
+    }
+
+    public void test4C2k_fn() {
+        ConverterClass converterClassK2CTest3 = new ConverterClass();
+        assertEquals(-100.0, converterClassK2CTest3.c2k_fn(-373.15));
     }
 
 }
