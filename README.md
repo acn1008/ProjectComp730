@@ -1,7 +1,7 @@
 # ProjectComp730
 ## Temperature Conversion App
 
-### Temperature Conversion app where a user inputs a number and selects if they want to convert from Celsius to Fahrenheit, Fahrenheit to Celsius, Kelvin to Fahrenheit, Fahrenheit to Kelvin, Celsius to Kelvin, or Kelvin to Celsius. A progress bar is implemented at the bottom of the screen to indicate freezing and boiling based on conversion. When the bar is at 0 it means that value was either at freezing or below freezing. When the bar is full it means that value was either at boiling point or above it. For example,when a user inputs 32 and selects to convert from Fahrenheit to Celsius, the bar will be at 0 and the result will be 0 in the output field. This indicates that 32 F and 0 C are the same both visually and numerically.
+### Temperature Conversion app where a user inputs a number and selects if they want to convert from Celsius to Fahrenheit, Fahrenheit to Celsius, Kelvin to Fahrenheit, Fahrenheit to Kelvin, Celsius to Kelvin, or Kelvin to Celsius. A progress bar is implemented at the bottom of the screen to indicate freezing and boiling based on conversion. When the bar is at 0 it means that value was either at freezing or below freezing. When the bar is full it means that value was either at boiling point or above it. For example, when a user inputs 32 and selects to convert from Fahrenheit to Celsius, the bar will be at 0 and the result will be 0 in the output field. This indicates that 32 F and 0 C are the same both visually and numerically.
 
 ## How to Use
 
