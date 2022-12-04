@@ -1,3 +1,4 @@
+@author Ellie Brown/Andre Nasrah
 # ProjectComp730
 ## Temperature Conversion App
 
