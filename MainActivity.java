@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button go_Btn;
     private EditText input_Edt;
     private TextView output_TV;
-    private int CurrentProgress = 0;
+    private double CurrentProgress = 0;
 
     public MainActivity() {
     }
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             // the bar back to read 32 matching 0 pct on the bar marks "freezing point"
             output_TV.setText(Double.toString(degFar));
             CurrentProgress = CurrentProgress + final_Far;
-            progressBar.setProgress(CurrentProgress);
+            progressBar.setProgress((int)CurrentProgress);
             CurrentProgress = 0;
             //Freezing temperature 32 degrees Fahrenheit or below would have blue background
             //Default background is purple
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             progressBar.setMax(100); // set max bar to 100 since 212 degrees fahrenheit and 100 degrees celcius / 100 pct on
             // bar marks "boiling point" as well as 0 degrees celsius matching 0 percent on the bar marks "freezing point"
             CurrentProgress = CurrentProgress + final_Cel;
-            progressBar.setProgress(CurrentProgress);
+            progressBar.setProgress((int)CurrentProgress);
             //Resets progress bar to 0
             CurrentProgress = 0;
             //Freezing temperature 0 degrees Celsius or below would have blue background
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             //Entire progress bar needs to be offset by 32 so that 212 - 32 = 180
             CurrentProgress = CurrentProgress + final_Cel;
             //Updates progress bar to be filled with a percentage value of what final_Far is
-            progressBar.setProgress(CurrentProgress);
+            progressBar.setProgress((int)CurrentProgress);
             CurrentProgress = 0;
             //Resets progress bar to 0
             if (degCel <= 0){ //if output from conversion is less than 32 color = cold (blue)
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
             //Entire progress bar needs to be offset by 32 so that 212 - 32 = 180
             CurrentProgress = CurrentProgress + final_Far;
             //Updates progress bar to be filled with a percentage value of what final_Far is
-            progressBar.setProgress(CurrentProgress);
+            progressBar.setProgress((int)CurrentProgress);
             CurrentProgress = 0;
             //Resets progress bar to 0
             if (degFar <= 32){ //if output from conversion is less than 32 color = cold (blue)
@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
             //Takes input value from input_Edt and sets it to degKel
             double degKel = converterClass.f2k_fn(degFar);
             //The output of converterClass using degKel is put into degKel as the result
-            int final_Kel = (int) degKel - 273;
+            double final_Kel = degKel - 273.15;
             //Progress bar needs to be shifted 273 to the left so that is aligned with both freezing points
             //F freezing = 32 and F freezing = 273
             //Progress bar represents freezing point as 0% so bar needs to be offset by 273
@@ -283,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
             //Entire progress bar needs to be offset by 273 so that 373 - 273 = 100
             CurrentProgress = CurrentProgress + final_Kel;
             //Updates progress bar to be filled with a percentage value of what final_Kel is
-            progressBar.setProgress(CurrentProgress);
+            progressBar.setProgress((int)CurrentProgress);
             CurrentProgress = 0;
             //Resets progress bar to 0
             if (degKel <= 273.15){ //if output from conversion is less than 273 color = cold (blue)
@@ -311,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
             //Takes input value from input_Edt and sets it to degCal
             double degKel = converterClass.c2k_fn(degCel);
             //The output of converterClass using degCel is put into degKel as the result
-            int final_Kel = (int) degKel - 273;
+            double final_Kel = degKel - 273.15;
             //Progress bar needs to be shifted 273 to the left so that is aligned with both freezing points
             //C freezing = 0 and F freezing = 273
             //Progress bar represents freezing point as 0% so bar needs to be offset by 273
@@ -321,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
             //Entire progress bar needs to be offset by 273 so that 373 - 273 = 100
             CurrentProgress = CurrentProgress + final_Kel;
             //Updates progress bar to be filled with a percentage value of what final_Kel is
-            progressBar.setProgress(CurrentProgress);
+            progressBar.setProgress((int)CurrentProgress);
             CurrentProgress = 0;
             //Resets progress bar to 0
             if (degKel <= 273.15) { //if output from conversion is less than 273 color = cold (blue)
