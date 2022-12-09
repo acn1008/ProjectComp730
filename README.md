@@ -44,7 +44,7 @@
   ### -Progress bar will be 80% full and background will change to green.
   
 
-### Input -32 and convert from Fahrenheit to Celsius; result will be -35.55555555555556 repeating.
+### Input -32 and convert from Fahrenheit to Celsius; result will be -35.5 repeating.
   ### -Progress bar will be empty and background will change to blue.
   
 
