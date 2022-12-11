@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
             //Takes input value from input_Edt and sets it to degKel
             double degKel = converterClass.f2k_fn(degFar);
             //The output of converterClass using degKel is put into degKel as the result
-            double final_Kel = (int) degKel - 273.15;
+            double final_Kel = degKel - 273.15;
             //Progress bar needs to be shifted 273.15 to the left so that is aligned with both freezing points
             //F freezing = 32 and F freezing = 273.15
             //Progress bar represents freezing point as 0% so bar needs to be offset by 273.15
@@ -311,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
             //Takes input value from input_Edt and sets it to degCal
             double degKel = converterClass.c2k_fn(degCel);
             //The output of converterClass using degCel is put into degKel as the result
-            double final_Kel = (int) degKel - 273.15;
+            double final_Kel = degKel - 273.15;
             //Progress bar needs to be shifted 273.15 to the left so that is aligned with both freezing points
             //C freezing = 0 and F freezing = 273.15
             //Progress bar represents freezing point as 0% so bar needs to be offset by 273
