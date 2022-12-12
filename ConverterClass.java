@@ -1,5 +1,9 @@
 package com.example.tempconverterbothfarenheitandcelsius;
 
+/**
+ * @author Andre Nasrah and Ellie Brown
+ */
+
 public class ConverterClass {
     //celsius to fahrenheit calculation
     public double c2f_fn(double celsius) {

@@ -21,6 +21,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/**
+ * @author Andre Nasrah and Ellie Brown
+ */
 
 public class MainActivity extends AppCompatActivity {
 

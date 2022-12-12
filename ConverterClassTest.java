@@ -5,6 +5,10 @@ import junit.framework.TestCase;
 //Testing class created to test ConverterClass. 24 tests total (4 for each function)
 //Test 4 for each function tests negative temperatures being converted
 
+/**
+ * @author Andre Nasrah and Ellie Brown
+ */
+
 public class ConverterClassTest extends TestCase {
 
     public void test1C2f_fn() {
@@ -27,7 +31,6 @@ public class ConverterClassTest extends TestCase {
         assertEquals(104.0, converterClassC2FTest3.c2f_fn(40));
 
     }
-
     public void test4c2f_fn() {
         ConverterClass converterClassC2FTest3 = new ConverterClass();
         assertEquals(-148.0, converterClassC2FTest3.c2f_fn(-100));
@@ -60,7 +63,6 @@ public class ConverterClassTest extends TestCase {
         ConverterClass converterClassF2CTest1 = new ConverterClass();
         assertEquals(-35.55555555555556, converterClassF2CTest1.f2c_fn(-32));
     }
-
     //The following four tests will test Kelvin to Celsius as stated in read me file
     //Used double type for temperature to be converted to Celsius from Kelvin. The assertion
     //is checked as actual actual value is compared to the what we entered as the expected value.
